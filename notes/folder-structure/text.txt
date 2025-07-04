@@ -1,0 +1,111 @@
+src/
+├── modules/               # 💡 Domain-specific folders (1 folder = 1 feature/module)
+│   ├── dashboard/         # Dashboard-specific UI and logic
+│   │   ├── DashboardOverview.tsx     # Dashboard page component
+│   │   └── dashboardService.ts       # Dashboard-related API or helpers
+│   ├── products/          # Products listing, add/edit/delete, etc.
+│   │   ├── ProductList.tsx           # Product listing UI
+│   │   └── productService.ts         # Product APIs (GET, POST, PUT, DELETE)
+│   └── users/             # User management (admin side)
+│       ├── UserList.tsx              # User table page
+│       └── userService.ts            # User-related APIs
+│
+├── components/            # 🔁 Reusable, dumb UI components
+│   ├── Sidebar/                     # Sidebar for admin layout
+│   │   └── Sidebar.tsx
+│   ├── Navbar/                      # Topbar / header
+│   │   └── Navbar.tsx
+│   └── Button/                      # Reusable styled buttons
+│       └── Button.tsx
+│
+├── layouts/               # 🧩 Common layout wrappers (used around route pages)
+│   └── DashboardLayout.tsx         # Sidebar + Navbar wrapper layout for admin routes
+│
+├── routes/                # 🧭 App route configurations
+│   └── AppRoutes.tsx               # React Router DOM setup and private/public routes
+│
+├── services/              # 🌐 Axios config, auth services, interceptors
+│   ├── axiosInstance.ts            # Axios base URL, token injection
+│   └── authService.ts              # login(), logout(), getUser() etc.
+│
+├── store/                 # 🧠 Central state management (Redux Toolkit / Zustand)
+│   └── index.ts                   # Store setup and root reducer config
+│
+├── hooks/                 # 🔄 Custom reusable React hooks
+│   ├── useAuth.ts                 # Authentication context hook
+│   └── useDebounce.ts             # Debounce for search inputs, etc.
+│
+├── utils/                 # 🔧 Helper functions and formatters
+│   ├── formatCurrency.ts          # Convert to ₹ currency format
+│   └── formatDate.ts              # Date formatting logic
+│
+├── types/                 # 📚 TypeScript interfaces and types
+│   ├── Product.ts                 # Product type definition
+│   └── User.ts                    # User type definition
+│
+├── constants/             # 🔒 Constant values used throughout the app
+│   └── roles.ts                   # Role names like ADMIN, USER etc.
+│
+├── App.tsx                # 🔁 Main application component with route layout
+├── main.tsx               # 🚀 Vite entry file - root ReactDOM render
+└── index.css              # 🎨 Global CSS including Tailwind base
+
+
+
+| Folder        | When to Use                                            |
+| ------------- | ------------------------------------------------------ |
+| `modules/`    | For every backend feature/module (product, user, etc.) |
+| `components/` | Reuse across pages: buttons, sidebar, navbar           |
+| `layouts/`    | Wrap UI around page (like dashboard shell)             |
+| `routes/`     | Define which component loads on which path             |
+| `services/`   | All API and axios-related logic                        |
+| `store/`      | Redux or Zustand logic (optional)                      |
+| `hooks/`      | Common custom logic like auth or debounce              |
+| `utils/`      | Pure functions — formatting, calculations etc.         |
+| `types/`      | TypeScript interfaces                                  |
+| `constants/`  | Static values used across app (paths, roles, config)   |
+
+
+
+
+
+theme
+
+| Purpose             | Color Name         | HEX Code  | Tailwind Class     |
+| ------------------- | ------------------ | --------- | ------------------ |
+| ✅ Primary (Brand)   | Indigo Blue        | `#3B82F6` | `bg-blue-500`      |
+| ✅ Primary Dark      | Navy/Dark Blue     | `#1E40AF` | `bg-blue-900`      |
+| ✅ Primary Light     | Sky Blue           | `#E0F2FE` | `bg-blue-100`      |
+| ✅ Accent / Hover    | Sky Blue           | `#38BDF8` | `hover:bg-sky-400` |
+| ✅ Sidebar BG        | Slate/Gray-900     | `#0F172A` | `bg-slate-900`     |
+| ✅ Sidebar Text      | Gray-300           | `#D1D5DB` | `text-gray-300`    |
+| ✅ Navbar BG         | White / Light Gray | `#F8FAFC` | `bg-slate-100`     |
+| ✅ Border / Divider  | Light Gray         | `#E5E7EB` | `border-gray-200`  |
+| ✅ Button Text Light | White              | `#FFFFFF` | `text-white`       |
+
+
+
+
+
+
+Suggested Theme Style Notes
+🔷 Sidebar
+bg-slate-900 text-gray-300 hover:bg-slate-800 border-r border-slate-800
+
+🔷 Navbar
+bg-slate-100 shadow-sm h-14 flex items-center justify-between px-6
+
+🔷 Primary Button
+bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded
+
+🔷 Secondary Button
+bg-blue-100 hover:bg-blue-200 text-blue-700 font-medium px-4 py-2 rounded
+
+🔷 Card / Box
+bg-white shadow rounded-lg p-4 border border-gray-100
+
+🔷 Headings
+text-lg font-semibold text-slate-800
+
+🔷 Text Input
+border border-gray-300 focus:ring-blue-500 focus:border-blue-500 rounded px-3 py-2

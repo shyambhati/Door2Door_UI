@@ -1,0 +1,31 @@
+# dependencies
+node_modules/
+
+# production
+dist/
+
+# env files
+.env
+.env.*.local
+
+# local dev tools
+.vscode/
+.idea/
+*.log
+
+# macOS system files
+.DS_Store
+
+# Optional build cache
+.cache/
+*.tsbuildinfo
+
+# IDE settings
+*.suo
+*.ntvs_analysis.dat
+*.njsproj
+*.sln
+
+# yarn/pnpm lock (if not using them)
+yarn.lock
+pnpm-lock.yaml
