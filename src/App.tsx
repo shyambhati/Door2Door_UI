@@ -1,13 +1,10 @@
 import './App.css'
-
+import Navbar from './components/Navbar/Navbar'
+import DashboardLayout from './layouts/DashboardLayout'
 function App() {
-
   return (
     <>
-      <div className="bg-blue-500 text-white p-6 text-2xl">
-  Tailwind is Working 🎉
-</div>
-
+    <DashboardLayout/>
     </>
   )
 }
