@@ -1,29 +1,61 @@
-import React from 'react'
+import { ChevronRight } from "lucide-react";
+import * as LucideIcons from "lucide-react"; // icon dynamic access
+import menuData from "../../constants/menus.json"; // your JSON file path
 
-export default function Sidebar() {
+export const Sidebar = () => {
+  const getIcon = (name: string, size = 16) => {
+    const Icon = (LucideIcons as any)[name.charAt(0).toUpperCase() + name.slice(1).replace(/-([a-z])/g, g => g[1].toUpperCase())];
+    return Icon ? <Icon size={size} /> : <span className="w-4 h-4 inline-block" />;
+  };
+
   return (
-     <aside className="w-64 bg-white border-r h-full p-4">
-      <nav className="space-y-4">
-        <p className="text-xs text-gray-400 font-semibold mb-0 tracking-wide">MAIN</p>
-        <a href="#" className="block text-gray-700 hover:text-white-600 flex items-center bg-blue-600 py-2 px-2 ring-1 rounded-md text-white justify-between">
-            <span className="flex  gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-layout-grid-icon lucide-layout-grid"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
-                Dashboard
-            </span>
-            <svg width="9.33" height="5.33" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.25 0.75L6 5.25L0.75 0.75" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-        </a>
+    <div className="h-screen w-64 bg-white  px-3 py-1 overflow-y-auto">
+      {menuData.map((group, groupIndex) => (
+        <div key={groupIndex} className="menu-group mb-6">
+          <h5 className="px-2 text-xs font-semibold text-gray-400 uppercase mb-2">
+            {group.group}
+          </h5>
+          <ul className="space-y-1">
+            {group.items.map((item, itemIndex) => (
+              <li key={itemIndex} className="text-sm text-gray-600">
+                {item.children ? (
+                  <details className="group">
+                    <summary className="flex items-center justify-between cursor-pointer select-none px-3 py-2 rounded hover:bg-gray-100 transition-all duration-200 list-none [&::-webkit-details-marker]:hidden">
+                      <div className="flex items-center gap-2">
+                        {getIcon(item.icon)} {item.label}
+                      </div>
+                      <ChevronRight
+                        size={14}
+                        className="transition-transform duration-300 group-open:rotate-90"
+                      />
+                    </summary>
 
-        <p className="text-xs text-gray-400 font-semibold mb-0 tracking-wide">Product</p>
-        <a href="#" className="block text-gray-700 hover:text-indigo-600">Category </a>
-        <div>
-            <a href="#" className="block text-gray-700 hover:text-indigo-600">Category</a>
-            <div className="ml-4 mt-2 space-y-1">
-              <a href="#" className="block text-sm text-gray-600 hover:text-indigo-600">Add Category</a>
-              <a href="#" className="block text-sm text-gray-600 hover:text-indigo-600">Category List</a>
-            </div>
-          </div> 
-        <a href="#" className="block text-gray-700 hover:text-indigo-600">Settings</a>
-      </nav>
-    </aside>
-  )
-}
+                    <ul className="ml-6 mt-2 space-y-1 transition-all duration-300 ease-in-out opacity-0 max-h-0 overflow-hidden group-open:opacity-100 group-open:max-h-96">
+                      {item.children.map((sub, subIndex) => (
+                        <li key={subIndex}>
+                          <a
+                            href={sub.path}
+                            className="flex items-center gap-2 text-gray-500 hover:text-blue-600 text-sm py-1 pl-2 rounded select-none"
+                          >
+                            {getIcon(sub.icon, 14)} {sub.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
+                ) : (
+                  <a
+                    href={item.path}
+                    className="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-100 transition text-sm text-gray-600 select-none"
+                  >
+                    {getIcon(item.icon)} {item.label}
+                  </a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  );
+};
