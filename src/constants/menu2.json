@@ -1,0 +1,187 @@
+{
+  "settings": {
+    "menuBg": "white",
+    "submenuBg": "gray-50",
+    "hoverBg": "gray-100",
+    "activeText": "blue-600",
+    "fontSize": "text-sm",
+    "iconSize": 16,
+    "rounded": "md",
+    "iconLibrary": "lucide-react"
+  },
+  "groups": [
+    {
+      "group": "Main Menu",
+      "items": [
+        {
+          "label": "Dashboard",
+          "icon": "home",
+          "path": "/dashboard"
+        },
+        {
+          "label": "Orders",
+          "icon": "shopping-cart",
+          "children": [
+            {
+              "label": "All Orders",
+              "icon": "list",
+              "path": "/orders"
+            },
+            {
+              "label": "Pending Orders",
+              "icon": "clock",
+              "path": "/orders/pending"
+            },
+            {
+              "label": "Returns",
+              "icon": "rotate-ccw",
+              "path": "/orders/returns"
+            }
+          ]
+        },
+        {
+          "label": "Products",
+          "icon": "box",
+          "children": [
+            {
+              "label": "All Products",
+              "icon": "list",
+              "path": "/products"
+            },
+            {
+              "label": "Add Product",
+              "icon": "plus",
+              "path": "/products/add"
+            },
+            {
+              "label": "Inventory",
+              "icon": "layers",
+              "path": "/products/inventory"
+            },
+            {
+              "label": "Reviews",
+              "icon": "star",
+              "path": "/products/reviews"
+            }
+          ]
+        },
+        {
+          "label": "Categories",
+          "icon": "tags",
+          "children": [
+            {
+              "label": "All Categories",
+              "icon": "list",
+              "path": "/categories"
+            },
+            {
+              "label": "Add Category",
+              "icon": "plus",
+              "path": "/categories/add"
+            }
+          ]
+        },
+        {
+          "label": "Customers",
+          "icon": "users",
+          "children": [
+            {
+              "label": "All Customers",
+              "icon": "list",
+              "path": "/customers"
+            },
+            {
+              "label": "Loyalty Program",
+              "icon": "gift",
+              "path": "/customers/loyalty"
+            }
+          ]
+        },
+        {
+          "label": "Marketing",
+          "icon": "megaphone",
+          "children": [
+            {
+              "label": "Banners",
+              "icon": "image",
+              "path": "/marketing/banners"
+            },
+            {
+              "label": "Coupons",
+              "icon": "percent",
+              "path": "/marketing/coupons"
+            },
+            {
+              "label": "Campaigns",
+              "icon": "mail",
+              "path": "/marketing/campaigns"
+            }
+          ]
+        },
+        {
+          "label": "Reports",
+          "icon": "bar-chart",
+          "children": [
+            {
+              "label": "Sales Report",
+              "icon": "file-text",
+              "path": "/reports/sales"
+            },
+            {
+              "label": "Customer Report",
+              "icon": "user-check",
+              "path": "/reports/customers"
+            },
+            {
+              "label": "Inventory Report",
+              "icon": "database",
+              "path": "/reports/inventory"
+            }
+          ]
+        },
+        {
+          "label": "Management",
+          "icon": "user-cog",
+          "children": [
+            {
+              "label": "All Admins",
+              "icon": "users",
+              "path": "/admins"
+            },
+            {
+              "label": "Roles & Permissions",
+              "icon": "key",
+              "path": "/admins/roles"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "footer": {
+    "label": "Settings",
+    "icon": "settings",
+    "children": [
+      {
+        "label": "General",
+        "icon": "sliders",
+        "path": "/settings/general"
+      },
+      {
+        "label": "Security",
+        "icon": "shield",
+        "path": "/settings/security"
+      },
+      {
+        "label": "Payment",
+        "icon": "credit-card",
+        "path": "/settings/payment"
+      },
+      {
+        "label": "Shipping",
+        "icon": "truck",
+        "path": "/settings/shipping"
+      }
+    ]
+  }
+}
