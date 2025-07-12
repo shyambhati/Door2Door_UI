@@ -1,17 +1,18 @@
 {
   "settings": {
     "menuBg": "white",
-    "submenuBg": "gray-50",
+    "submenuBg": "gray-500",
     "hoverBg": "gray-100",
     "activeText": "blue-600",
     "fontSize": "text-sm",
     "iconSize": 16,
     "rounded": "md",
-    "iconLibrary": "lucide-react"
+    "iconLibrary": "lucide-react",
+    "sectionsTitle":true
   },
-  "groups": [
+  "sections": [
     {
-      "group": "Main Menu",
+      "title": "Main Menu",
       "items": [
         {
           "label": "Dashboard",

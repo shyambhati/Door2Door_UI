@@ -3,7 +3,7 @@ import * as LucideIcons from "lucide-react";
 import menuData from "../../constants/menu2.json";
 import { ChevronRight } from "lucide-react";
 
-export default function SidebarAccordion() {
+export default function SidebarAccordionRaw() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const getIcon = (name: string, size = 16) => {
@@ -16,13 +16,16 @@ export default function SidebarAccordion() {
 
   return (
     <div className="h-screen w-64 bg-white px-3 py-2 overflow-y-auto">
-      {menuData.groups.map((data, groupIndex) => (
-        <div key={groupIndex} className="menu-group mb-6">
-          <h5 className="px-1 text-xs font-semibold text-gray-400 mb-2">
-            {data.group}
-          </h5>
+      {menuData.sections.map((section, sectionIndex) => (
+        <div key={sectionIndex} className="menu-section mb-6">
+          {menuData.settings?.sectionsTitle !== false && (
+            <h5 className="px-1 text-xs font-semibold text-gray-400 mb-2">
+              {section.title}
+            </h5>
+          )}
+
           <ul className="space-y-1">
-            {data.items.map((item, itemIndex) => {
+            {section.items.map((item, itemIndex) => {
               const isOpen = openIndex === itemIndex;
               return (
                 <li key={itemIndex}>
