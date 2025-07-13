@@ -1,5 +1,6 @@
 
 import Navbar from '../components/Navbar/Navbar'
+import { ProductTable } from '../components/ProductTable/ProductTable';
 import Sidebar from '../components/Sidebar/Sidebar'
 import { StatCard } from '../components/StatCard/StatCard'
 import { ShoppingCart, Users, DollarSign } from "lucide-react";
@@ -8,9 +9,9 @@ export default function DashboardLayout() {
     <>
         <div className="min-h-screen w-full bg-[#e7eaf2]">
             <Navbar />
-            <div className="flex  pt-16 h-[calc(100vh)]">
+            <div className="flex  pt-16 min-h-[calc(100vh)]">
                 <Sidebar/>
-                <main className="rounded-tl-md  w-full  h-[calc(100vh-3.5rem)]  "
+                <main className="rounded-tl-md  ml-64 w-full  min-h-[calc(100vh-3.5rem)]  "
                 style={{
                     boxShadow:
                     "inset 8px 0px 10px -8px rgba(0,0,0,0.2), inset 0px 8px 10px -8px rgba(0,0,0,0.2)",
@@ -35,10 +36,10 @@ export default function DashboardLayout() {
                         </div>
                     </div>
 
-                   
-                    <h1 className="text-4xl font-bold text-blue-600">
-                        ✅ Tailwind is Working!
-                    </h1>
+                   <div className='m-2'>
+                    <ProductTable/>
+                   </div>
+                    
                 </main> 
             </div>
         </div>
