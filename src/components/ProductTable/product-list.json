@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "image": "/images/sample1.jpg",
+    "name": "Aata Biscuit",
+    "sku": "SKU12345",
+    "category": "Snacks",
+    "price": 29.0,
+    "stock": 510,
+    "status": "Active"
+  },
+  {
+    "id": 2,
+    "image": "/images/sample2.jpg",
+    "name": "Chocolate Bar",
+    "sku": "SKU12346",
+    "category": "Chocolates",
+    "price": 45.5,
+    "stock": 320,
+    "status": "Inactive"
+  },
+  {
+    "id": 3,
+    "image": "/images/sample3.jpg",
+    "name": "Fruit Juice",
+    "sku": "SKU12347",
+    "category": "Beverages",
+    "price": 75.0,
+    "stock": 200,
+    "status": "Active"
+  },
+  {
+    "id": 4,
+    "image": "/images/sample4.jpg",
+    "name": "Mango Pickle",
+    "sku": "SKU12348",
+    "category": "Condiments",
+    "price": 60.0,
+    "stock": 150,
+    "status": "Active"
+  },
+  {
+    "id": 5,
+    "image": "/images/sample5.jpg",
+    "name": "Instant Noodles",
+    "sku": "SKU12349",
+    "category": "Ready-to-eat",
+    "price": 25.0,
+    "stock": 430,
+    "status": "Inactive"
+  },
+  {
+    "id": 6,
+    "image": "/images/sample6.jpg",
+    "name": "Rice Flour",
+    "sku": "SKU12350",
+    "category": "Grains",
+    "price": 95.0,
+    "stock": 280,
+    "status": "Active"
+  },
+  {
+    "id": 7,
+    "image": "/images/sample7.jpg",
+    "name": "Tomato Ketchup",
+    "sku": "SKU12351",
+    "category": "Condiments",
+    "price": 55.0,
+    "stock": 110,
+    "status": "Active"
+  },
+  {
+    "id": 8,
+    "image": "/images/sample8.jpg",
+    "name": "Cooking Oil",
+    "sku": "SKU12352",
+    "category": "Essentials",
+    "price": 140.0,
+    "stock": 90,
+    "status": "Inactive"
+  },
+  {
+    "id": 9,
+    "image": "/images/sample9.jpg",
+    "name": "Chips Packet",
+    "sku": "SKU12353",
+    "category": "Snacks",
+    "price": 35.0,
+    "stock": 600,
+    "status": "Active"
+  },
+  {
+    "id": 10,
+    "image": "/images/sample10.jpg",
+    "name": "Energy Drink",
+    "sku": "SKU12354",
+    "category": "Beverages",
+    "price": 85.0,
+    "stock": 75,
+    "status": "Active"
+  },
+  {
+    "id": 11,
+    "image": "/images/sample11.jpg",
+    "name": "Corn Flakes",
+    "sku": "SKU12355",
+    "category": "Cereals",
+    "price": 120.0,
+    "stock": 50,
+    "status": "Inactive"
+  },
+  {
+    "id": 12,
+    "image": "/images/sample12.jpg",
+    "name": "Green Tea",
+    "sku": "SKU12356",
+    "category": "Beverages",
+    "price": 95.0,
+    "stock": 40,
+    "status": "Active"
+  }
+]

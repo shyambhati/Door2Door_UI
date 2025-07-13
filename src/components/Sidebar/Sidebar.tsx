@@ -6,7 +6,7 @@ export default function Sidebar() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-   <div className="h-screen w-64 bg-white px-3 py-2 overflow-y-auto ">
+   <div className="min-h-screen fixed w-64 bg-white px-3 py-2 overflow-y-auto ">
       {menuData.sections.map((section, sectionIndex) => (
         <SidebarSection
           key={sectionIndex}
