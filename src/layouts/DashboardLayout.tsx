@@ -1,16 +1,16 @@
 
 import Navbar from '../components/Navbar/Navbar'
-import { ProductTable } from '../components/ProductTable/ProductTable';
 import Sidebar from '../components/Sidebar/Sidebar'
 import { StatCard } from '../components/StatCard/StatCard'
 import { ShoppingCart, Users, DollarSign } from "lucide-react";
+import { ProductTable } from '../modules/products/ProductTable';
 export default function DashboardLayout() {
   return (
     <>
         <div className="min-h-screen w-full bg-[#e7eaf2]">
             <Navbar />
-            <div className="flex  pt-16 min-h-[calc(100vh)]">
-                <Sidebar/>
+            <div className="flex pt-16 min-h-[calc(100vh)]">
+                <Sidebar />
                 <main className="rounded-tl-md  ml-64 w-full  min-h-[calc(100vh-3.5rem)]  "
                 style={{
                     boxShadow:
@@ -35,11 +35,9 @@ export default function DashboardLayout() {
                             </div>
                         </div>
                     </div>
-
                    <div className='m-2'>
                     <ProductTable/>
                    </div>
-                    
                 </main> 
             </div>
         </div>

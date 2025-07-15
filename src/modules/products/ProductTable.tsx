@@ -1,10 +1,11 @@
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import productData from "./product-list.json";
 import { useDebounce } from "../../hooks/useDebounce";
 import { highlightText } from "../../utils/textUtils";
 import { Plus } from "lucide-react";
 
 export const ProductTable = () => {
+  
   const [searchTerm, setSearchTerm] = useState("");
   const debouncedSearch = useDebounce(searchTerm);
   const [statusFilter, setStatusFilter] = useState("All");
@@ -47,7 +48,7 @@ export const ProductTable = () => {
         const valB = b[sortKey];
 
         if (typeof valA === "number" && typeof valB === "number") {
-          return sortOrder === "asc" ? valA - valB : valB - valA;
+          return sortOrder === "asc" ? -1 : 1;
         }
 
         return sortOrder === "asc"
@@ -55,48 +56,44 @@ export const ProductTable = () => {
           : String(valB).localeCompare(String(valA));
       });
     }
-
     return data;
   }, [debouncedSearch, statusFilter, sortKey, sortOrder]);
 
   return (
     <>
-      <div className="shadow-sm p-2 bg-white rounded mx-4 mb-2 flex justify-between items-center">
-  <h2 className="text-xl font-semibold">Today Order List</h2>
+      <div className="shadow-sm p-2 bg-white rounded my-2 flex justify-between items-center">
+        <h2 className="text-xl font-semibold">Today Order List</h2>
+        <div className="flex gap-3 items-center">
+          <input
+            type="text"
+            placeholder="Search by name, SKU, category..."
+            className="border border-gray-300 rounded px-2 py-1.5 text-sm w-64"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
 
-  <div className="flex gap-3 items-center">
-    <input
-      type="text"
-      placeholder="Search by name, SKU, category..."
-      className="border border-gray-300 rounded px-2 py-1.5 text-sm w-64"
-      value={searchTerm}
-      onChange={(e) => setSearchTerm(e.target.value)}
-    />
+          <select className="border border-gray-300 rounded px-2 py-1.5 text-sm">
+            <option value="All">Price filter</option>
+          </select>
 
- <select
-      className="border border-gray-300 rounded px-2 py-1.5 text-sm"
-    >
-      <option value="All">Price filter</option>
-    </select>
+          <select
+            value={statusFilter}
+            onChange={(e) => setStatusFilter(e.target.value)}
+            className="border border-gray-300 rounded px-2 py-1.5 text-sm"
+          >
+            <option value="All">All Status</option>
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+          </select>
 
-    <select
-      value={statusFilter}
-      onChange={(e) => setStatusFilter(e.target.value)}
-      className="border border-gray-300 rounded px-2 py-1.5 text-sm"
-    >
-      <option value="All">All Status</option>
-      <option value="Active">Active</option>
-      <option value="Inactive">Inactive</option>
-    </select>
+          <button className="flex items-center gap-2 px-2 py-1.5 bg-[#613cea] text-white rounded-md shadow hover:bg-[#502fbe] transition">
+            <Plus className="w-4 h-4" />
+            Add Product
+          </button>
+        </div>
+      </div>
 
-    <button className="flex items-center gap-2 px-2 py-1.5 bg-[#613cea] text-white rounded-md shadow hover:bg-[#502fbe] transition">
-      <Plus className="w-4 h-4" />
-      Add Product
-    </button>
-  </div>
-</div>
-
-      <div className="p-4 bg-white rounded shadow mx-4">
+      <div className=" bg-white rounded shadow p-2">
         {/* 📋 Table */}
         <table className="min-w-full text-sm border border-gray-200">
           <thead className="[&>tr>th]:text-left [&>tr>th]:text-gray-700 [&>tr>th]:text-sm [&>tr>th]:uppercase [&>tr>th]:px-4 [&>tr>th]:py-2 [&>tr>th]:hover:text-blue-500 bg-gray-50">
@@ -166,11 +163,11 @@ export const ProductTable = () => {
                     {product.status}
                   </span>
                 </td>
-                <td className="space-x-2">
-                  <button className="text-blue-500 hover:underline">
+                <td className="space-x-2 [&>button]:hover:underline">
+                  <button className="text-blue-500 ">
                     Edit
                   </button>
-                  <button className="text-red-500 hover:underline">
+                  <button className="text-red-500 ">
                     Delete
                   </button>
                 </td>
